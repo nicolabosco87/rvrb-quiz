@@ -1,0 +1,5 @@
+✔ add seed https://www.prisma.io/docs/guides/migrate/seed-database#how-to-seed-your-database-in-prisma @done(23-05-26 15:12)
+✔ add prisma connection https://www.prisma.io/docs/getting-started/quickstart#4-explore-how-to-send-queries-to-your-database-with-prisma-client @done(23-05-26 15:12)
+✔ setup test DB through test.env @done(23-05-26 15:12)
+✔ start dev through test.ts @done(23-05-26 15:12)
+

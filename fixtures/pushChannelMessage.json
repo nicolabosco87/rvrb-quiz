@@ -1,0 +1,15 @@
+{
+  "jsonrpc": "2.0",
+  "method": "pushChannelMessage",
+  "params": {
+    "deleted": false,
+    "expandable": false,
+    "syncTime": 1685051305218,
+    "payload": "meow",
+    "userId": "635f66402f9b8fe2ed71ff51",
+    "format": "text",
+    "type": "chat",
+    "userName": "Woods🪵",
+    "originaalPayload": "meow"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "rvrb-quiz",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "env-cmd ts-node index.ts",
+    "test": "pnpm test:reset-db && pnpm seed:prod && pnpm seed:test && pnpm jest",
+    "test:reset-db": "env-cmd -f ./test.env prisma db push --force-reset",
+    "test-only": "env-cmd -f ./test.env ts-node test.ts",
+    "generate": "prisma generate",
+    "jest": "env-cmd -f ./test.env jest",
+    "seed:dev:prod": "ts-node prisma/seeds/prod.seed.ts",
+    "seed:prod": "env-cmd -f ./test.env ts-node prisma/seeds/prod.seed.ts",
+    "seed:test": "env-cmd -f ./test.env ts-node prisma/seeds/test.seed.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "4.14.1",
+    "dayjs": "^1.11.8",
+    "dotenv": "^16.0.3",
+    "prisma": "^4.14.1",
+    "ws": "^8.13.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.5.0",
+    "@tsconfig/node16": "^1.0.4",
+    "@types/ws": "^8.5.4",
+    "env-cmd": "^10.1.0",
+    "jest": "^29.5.0",
+    "ts-jest": "^29.1.0",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.4"
+  },
+  "prisma": {
+    "seed": "ts-node prisma/seeds/prod.seed.ts"
+  }
+}

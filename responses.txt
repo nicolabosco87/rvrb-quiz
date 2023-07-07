@@ -1,0 +1,22 @@
+Connected to server
+Received message: {"jsonrpc":"2.0","method":"ready","params":{"userName":"bot_1684310652602","displayName":"RoboWoods","channelId":"633769c0a4c1c8ee05d236c6"}}
+Received message: {"jsonrpc":"2.0","id":93,"result":{"stepDownAfterPlay":false}}
+Joined channel 633769c0a4c1c8ee05d236c6
+Received message: {"jsonrpc":"2.0","method":"updateChannelDjs","params":{"type":"updateDjs","djs":[],"syncTime":1685051265763}}
+Received update from channel djs: undefined
+Received message: {"jsonrpc":"2.0","method":"updateChannelUsers","params":{"type":"join","syncTime":1685051265765,"users":[{"_id":"64648a7ccca7a58e137bf789","image":"/defaultUser.png","djImage":"/defaultUser.png","thumbsUpImage":"/defaultUser.png","thumbsDownImage":"/defaultUser.png","userName":"bot_1684310652602","displayName":"RoboWoods","theme":"dark","nativeNotifications":{"enabled":false},"siteAdmin":false,"channelId":"633769c0a4c1c8ee05d236c6","type":"bot","createdDate":"2023-05-17T08:04:12.604Z","mobile":false}],"usersInRegion":{}}}
+Received update from channel users: undefined
+Received message: {"jsonrpc":"2.0","method":"pushChannelMessage","params":{"deleted":false,"expandable":false,"syncTime":1685051265766,"payload":"Welcome <span class=\"username bot_1684310652602\">@RoboWoods</span>. this is exciting!","userId":0,"format":"text","type":"botResponse","userName":"Bob","originalPayload":"Welcome @RoboWoods. this is exciting!"}}
+Received message from channel: undefined
+Received message: {"jsonrpc":"2.0","method":"pushChannelMessage","params":{"deleted":false,"expandable":false,"syncTime":1685051266900,"payload":"Test","userId":"64648a7ccca7a58e137bf789","format":"text","type":"chat","userName":"RoboWoods","originalPayload":"Test"}}
+Received message from channel: undefined
+Received message: {"jsonrpc":"2.0","method":"updateChannelUsers","params":{"type":"join","syncTime":1685051277227,"users":[{"_id":"635f66402f9b8fe2ed71ff51","boofStars":14,"createdDate":"2022-10-31T06:08:00.544Z","djImage":"https://app.rvrb.one/static/635f66402f9b8fe2ed71ff51_djImage.jpg","dopes":2384,"image":"https://app.rvrb.one/static/635f66402f9b8fe2ed71ff51_image.jpg","lastTouched":"2023-05-09T09:23:12.400Z","nopes":15,"rvrbed":false,"stars":293,"theme":"rainbow","thumbsDownImage":"/defaultUser.png","thumbsUpImage":"/static/635f66402f9b8fe2ed71ff51_1668722150163_thumbsUpImage.gif","userName":"Wood","lastAuthenticated":"2023-03-21T08:18:18.078Z","displayName":"Woods🪵","country":"IT","bio":"Wof 🐶","nativeNotifications":{"enablled":false},"mobile":false},{"_id":"64648a7ccca7a58e137bf789","image":"/defaultUser.png","djImage":"/defaultUser.png","thumbsUpImage":"/defaultUser.png","thumbsDownImage":"/defaultUser.png","userName":"bot_1684310652602","displayName":"RoboWoods","theme":"dark","nativeNotifications":{"enabled":false},"siteAdmin":false,"channelId":"633769c0a4c1c8ee05d236c6","type":"bot","createdDate":"2023-05-17T08:04:12.604Z","mobile":false}],"usersInRegion":{"IT":1}}}
+Received update from channel users: undefined
+Received message: {"jsonrpc":"2.0","method":"pushChannelMessage","params":{"deleted":false,"expandable":false,"syncTime":1685051277228,"payload":"Welcome <span class=\"username Wood\">@Woods🪵</span>. this is exciting!","userId":0,"format":"text",,"type":"botResponse","userName":"Bob","originalPayload":"Welcome @Woods🪵. this is exciting!"}}
+Received message from channel: undefined
+Received message: {"jsonrpc":"2.0","method":"pushChannelMessage","params":{"deleted":false,"expandable":false,"syncTime":1685051278526,"payload":"Test","userId":"64648a7ccca7a58e137bf789","format":"text","type":"chat","userName":"RoboWoods","originalPayload":"Test"}}
+Received message from channel: undefined
+Received message: {"jsonrpc":"2.0","method":"updateChannelUserStatus","params":{"635f66402f9b8fe2ed71ff51":{"lastTyping":1685051303616,"lastSeen":1685051303616}}}
+Received update from channel user status: undefined
+Received message: {"jsonrpc":"2.0","method":"pushChannelMessage","params":{"deleted":false,"expandable":false,"syncTime":1685051305218,"payload":"meow","userId":"635f66402f9b8fe2ed71ff51","format":"text","type":"chat","userName":"Woods🪵","originaalPayload":"meow"}}
+Received message from channel: undefined
