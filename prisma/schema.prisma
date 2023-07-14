@@ -35,4 +35,5 @@ model CorrectAnswers {
   user         UserInfo @relation(fields: [userId], references: [id])
   userId       String
   responseTime Int      @default(0)
+  roomId       String
 }

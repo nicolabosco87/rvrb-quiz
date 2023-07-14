@@ -1,12 +1,11 @@
 import { LABELS } from "../config/labels";
-import { PrismaClient, Question } from "../models";
+import { Question } from "../models";
 import { DateFilter, Message } from "../types";
+import { prisma } from "./prisma";
 import { replaceInString, buildHtmlTable } from "./utils";
 import dayjs from "dayjs";
 
 type SendMessageMethod = (message: string) => void;
-
-const prisma = new PrismaClient();
 
 export class Quiz {
   private _currentRoundStart?: Date;
@@ -15,11 +14,13 @@ export class Quiz {
   private _currentQuestion?: Question;
   private _currentQuestionStartTime?: Date;
   private _answered: boolean = false;
+  private _roomId: string = "";
 
   //   Setters
   setSendMessage = (sendMessage: SendMessageMethod) => {
     this._sendMessage = sendMessage;
   };
+  setRoomID = (roomID: string) => (this._roomId = roomID);
 
   // Getters
   getCurrentAnswer = () => this._currentQuestion?.answer;
@@ -29,26 +30,26 @@ export class Quiz {
   handleCommand = (m: Message) => {
     const message = m.params.payload;
 
-    if (message.includes("-quiz start")) {
+    if (message.indexOf("-quiz start") === 0) {
       this._active = true;
       this._sendMessage(LABELS.quizStarted);
       this._currentRoundStart = new Date();
       return Promise.resolve();
     }
 
-    if (message.includes("-quiz stop")) {
+    if (message.indexOf("-quiz stop") === 0) {
       this._active = false;
       this._sendMessage(LABELS.quizStopped);
       this._currentRoundStart = undefined;
       return Promise.resolve();
     }
 
-    if (message.includes("-quiz score")) {
+    if (message.indexOf("-quiz score") === 0) {
       const dateFilter = this._getDateFilterArgument(message);
       return this.printGameLeaderboard(dateFilter);
     }
 
-    if (message.includes("-quiz")) {
+    if (message.indexOf("-quiz") === 0) {
       return this.printHelp();
     }
 
@@ -245,6 +246,7 @@ export class Quiz {
               questionId: this._currentQuestion.id,
               userId: m.params.userId,
               responseTime,
+              roomId: this._roomId ?? "",
             },
           });
           return resolve(true);

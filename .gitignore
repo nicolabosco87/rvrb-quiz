@@ -1,11 +1,16 @@
 node_modules
-# Keep environment variables out of version control
+
+## Keep environment variables out of version control
 .env
+production.env
 raw-fixture
 
-# Test data
+## Test data
 prisma/test.db
 prisma/dev.db
 
-# Prisma
+## Prisma
 models
+
+## Build
+dist

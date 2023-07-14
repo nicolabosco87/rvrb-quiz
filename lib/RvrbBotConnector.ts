@@ -3,14 +3,14 @@ import WebSocket from "ws";
 import { ChannelUsers, Message } from "../types";
 
 // const url = `wss://app.rvrb.one/ws-bot?apiKey=${process.env.apikey}`
-const url = `wss://app.rvrb.one/ws-bot?apiKey=${process.env.apikey}`;
+const url = `wss://app.rvrb.one/ws-bot?apiKey=${process.env.API_KEY}`;
 
 // let channelId: number | null = null; // "any-every"; // process.env.apikey; // null
-const password = process.env.password || null;
+const password = null; // process.env.API_PASSWORD || null;
 
 // let ws: WebSocket;
 // let latency = 0;
-const reconnect = true;
+const reconnect = false;
 // let joinId: number;
 
 type JoinRequest = {
@@ -190,6 +190,7 @@ type JoinRequest = {
 
 type PushChannelMessageEvent = (m: Message) => void;
 type UpdateChannelUsersEvent = (m: ChannelUsers) => void;
+type OnReadyEvent = (channelID: string) => void;
 
 // const url = `wss://app.rvrb.one/ws-bot?apiKey=${process.env.apikey}`;
 // const password = process.env.password || null;
@@ -199,6 +200,7 @@ export class RvrbBotConnector {
   private _customPushChannelMessage: PushChannelMessageEvent = () => "";
   private _customUpdateChannelUsers: UpdateChannelUsersEvent = () => "";
   private _customPlayChannelTrack: any = () => "";
+  private _customOnReady: any = (channelId: string) => "";
 
   private channelId: number | null = null; // "any-every"; // process.env.apikey; // null
 
@@ -210,6 +212,7 @@ export class RvrbBotConnector {
   setCustomPushChannelMessage = (e: PushChannelMessageEvent) => (this._customPushChannelMessage = e);
   setCustomUpdateChannelUsers = (e: UpdateChannelUsersEvent) => (this._customUpdateChannelUsers = e);
   setCustomPlayChannelTrack = (e: any) => (this._customPlayChannelTrack = e);
+  setCustomOnReady = (e: OnReadyEvent) => (this._customOnReady = e);
 
   private eventHandlers = {
     keepAwake: (data: any) => {
@@ -233,6 +236,8 @@ export class RvrbBotConnector {
       if ("channelId" in data.params) {
         this.channelId = data.params.channelId;
         this.join(); // server sends ready when it's ready to receive commands
+
+        this._customOnReady(this.channelId);
       }
     },
     pushChannelMessage: (data: any) => {
@@ -339,9 +344,11 @@ export class RvrbBotConnector {
       console.log("Connected to server");
     });
 
-    this.ws.on("close", (e) => {
+    this.ws.on("close", (e, reason) => {
       console.log("Disconnected from server");
       console.dir(e);
+      console.dir(reason.toString());
+
       // reconnect?
       if (reconnect) {
         setTimeout(() => {

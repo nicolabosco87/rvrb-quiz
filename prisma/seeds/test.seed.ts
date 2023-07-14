@@ -27,6 +27,7 @@ async function seed() {
       questionId: question?.id ?? 1,
       userId: "000000111111222222333333",
       createdAt: new Date("01/01/1900"),
+      roomId: "testRoom",
     },
   });
   prisma.correctAnswers.create({
@@ -34,6 +35,7 @@ async function seed() {
       questionId: question?.id ?? 1,
       userId: "000000111111222222333333",
       createdAt: new Date("01/01/1900"),
+      roomId: "testRoom",
     },
   });
 }
